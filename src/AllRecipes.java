@@ -32,6 +32,11 @@ public class AllRecipes {
         this.url = url;
     }
 
+    /**
+     * Gets the ingredients in an arraylist of Strings
+     * @param htmlCode gotten from ArrayList of websites
+     * @return ArrayList of ingredients
+     */
     public ArrayList<String> getIngredients(String htmlCode) {
         int l = htmlCode.length();
         int lst = ingredientsStartTag.length();
@@ -47,6 +52,11 @@ public class AllRecipes {
         return ingredients;
     }
 
+    /**
+     * Gets the Strings of each step in the directions
+     * @param htmlCode gotten from ArrayList of websites
+     * @return ArrayList of steps
+     */
     public ArrayList<String> getSteps(String htmlCode) {
         int l = htmlCode.length();
         int lst = directionsStartTag.length();
@@ -62,6 +72,11 @@ public class AllRecipes {
         return steps;
     }
 
+    /**
+     *Gets a list of basic information about the recipe
+     * @param htmlCode gotten from ArrayList of websites
+     * @return ArrayList of 1) recipe ID 2) recipe title 3) the square jpg link 4) the original jpg image
+     */
         public ArrayList<String> getBasicParts(String htmlCode){
         int start = htmlCode.indexOf(basicsStartTag) + basicsStartTag.length();
         htmlCode = htmlCode.substring(start);
@@ -81,6 +96,11 @@ public class AllRecipes {
         return basicParts;
         }
 
+    /**
+     *Gets the different types of time needed for the recipe
+     * @param htmlCode gotten from ArrayList of websites
+     * @return ArrayList of different times taken 1) prep time + min 2) cook time + min 3) total time + min
+     */
         public ArrayList<String> getTimeParts(String htmlCode){
             int l = htmlCode.length();
             int lst = timeStartTags.length();
@@ -100,6 +120,11 @@ public class AllRecipes {
             return timeParts;
         }
 
+    /**
+     * Builds the url to access the website for a) credit b) more information
+     * @param htmlCode gotten from ArrayList of websites
+     * @return a url in a String
+     */
         public String urlConstruction(String htmlCode){
             int urlStart = htmlCode.indexOf(urlStartTag) + urlStartTag.length();
             int urlEnd = htmlCode.indexOf(urlEndTag);
