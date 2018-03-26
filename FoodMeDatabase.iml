@@ -8,9 +8,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="com.backendless:backendless:4.4.1" level="project" />
-    <orderEntry type="library" name="com.squareup.retrofit2:retrofit:2.3.0" level="project" />
-    <orderEntry type="library" name="com.squareup.retrofit2:converter-gson:2.3.0" level="project" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.2" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/IntelliJ/backendless-4.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
