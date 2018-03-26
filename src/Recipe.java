@@ -1,17 +1,27 @@
 public class Recipe {
 
-    private String recipeName, directions, servings, timeNeeded, ImageURL;
+    private String recipeName, directions, servings, timeNeeded, ImageURL, ingredients;
     private String objectId;
     private String ownerId;
 
     public Recipe(){
     }
 
-    public Recipe(String recipeName, String recipe, String objectId, String ownerId, String url) {
+    public Recipe(String recipeName, String directions, String servings, String timeNeeded, String ingredients, String imageURL) {
         this.recipeName = recipeName;
-        this.objectId = objectId;
-        this.ownerId = ownerId;
-        this.ImageURL = url;
+        this.directions = directions;
+        this.servings = servings;
+        this.timeNeeded = timeNeeded;
+        this.ingredients = ingredients;
+        this.ImageURL = imageURL;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getRecipeName() {
