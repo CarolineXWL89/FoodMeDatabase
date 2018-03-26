@@ -3,34 +3,34 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import java.util.List;
 
 public class JSONReader {
-    private FoodNetwork apiFoodNetwork;
+    private ChoppingBoard apiFoodNetwork;
     //amishi wants brownies
 
     public JSONReader() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(FoodNetwork.baseURL)
+                .baseUrl(ChoppingBoard.baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        apiFoodNetwork = retrofit.create(FoodNetwork.class);
-        makeCall();
+        apiFoodNetwork = retrofit.create(ChoppingBoard.class);
     }
 
-    public void makeCall() {
-        Call<FoodNetworkRecipe> call = apiFoodNetwork.getRecipe();
-        call.enqueue(new Callback<FoodNetworkRecipe>() {
+    public void makeCall(String url, String yada) {
+        Call<JSONRecipe> call = apiFoodNetwork.getRecipe(url, yada);
+        call.enqueue(new Callback<JSONRecipe>() {
             @Override
-            public void onResponse(Call<FoodNetworkRecipe> call, Response<FoodNetworkRecipe> response) {
-                FoodNetworkRecipe recipe = response.body();
+            public void onResponse(Call<JSONRecipe> call, Response<JSONRecipe> response) {
+                JSONRecipe recipe = response.body();
                 //todo create backenless object to send
-                Recipe r = new Recipe();
-                System.out.println(recipe.toString());
+                Recipe r = new Recipe(recipe.getName(),recipe.getInstructions(),recipe.getYield(), recipe.getTotalTime().getEn(), recipe.getIngredients(), recipe.getCopyrighted().getImage());
+                System.out.println(recipe.getName());
+                BackenlessUpload b = new BackenlessUpload(r);
+                b.upload();
             }
 
             @Override
-            public void onFailure(Call<FoodNetworkRecipe> call, Throwable t) {
+            public void onFailure(Call<JSONRecipe> call, Throwable t) {
                 System.out.println(t.getMessage());
             }
         });
