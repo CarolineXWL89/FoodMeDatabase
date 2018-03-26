@@ -22,7 +22,7 @@ public class JSONReader {
             @Override
             public void onResponse(Call<JSONRecipe> call, Response<JSONRecipe> response) {
                 JSONRecipe recipe = response.body();
-                //todo create backenless object to send
+                //todo create backendless object to send
                 Recipe r = new Recipe(recipe.getName(),recipe.getInstructions(),recipe.getYield(), recipe.getTotalTime().getEn(), recipe.getIngredients(), recipe.getCopyrighted().getImage());
                 System.out.println(recipe.getName());
                 BackenlessUpload b = new BackenlessUpload(r);

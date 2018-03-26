@@ -14,4 +14,5 @@ public class Main {
         RecipeLinkGetter recipeLinkGetter = new RecipeLinkGetter(googleHTMLCode);
         ArrayList<String> googleLinks = recipeLinkGetter.findLinks();
     }
+
 }
