@@ -3,10 +3,10 @@ import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
-public class BackenlessUpload {
+public class BackendlessUpload {
     private Recipe toBeUploaded;
 
-    public BackenlessUpload(Recipe toBeUploaded) {
+    public BackendlessUpload(Recipe toBeUploaded) {
         this.toBeUploaded = toBeUploaded;
     }
 
